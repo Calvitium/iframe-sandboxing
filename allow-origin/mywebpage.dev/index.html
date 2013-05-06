@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Access-Control-Allow-Origin</title>
+  </head>
+  <body>
+    <h1>Access-Control-Allow-Origin</h1>
+
+    <p>This page (mywebpage.dev:9999) sends the HTTP-Header 
+    <pre>Access-Control-Allow-Origin: http://facebook.dev</pre>
+    </p>
+
+    <iframe src="http://facebook.dev:9999/index.html"></iframe>
+    <iframe src="http://attacker.dev:9999/index.html"></iframe>
+
+    <script type="text/javascript">
+      var user_stuff = "sensitive data";
+    </script>
+
+  </body>
+</html>
