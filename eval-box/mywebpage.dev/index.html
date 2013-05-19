@@ -50,17 +50,17 @@
       var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 
       // Listen to message from child window
-      eventer(messageEvent,function(e) {
-        if(e.origin !== "http://attacker.dev:9999" &&
-          e.origin !== "http://advertiser.dev:9999") {
-          console.log("not allowed origin: " + e.origin);
+      eventer( messageEvent,function( e ) {
+        if( e.origin !== "http://attacker.dev:9999" &&
+          e.origin !== "http://advertiser.dev:9999" ) {
+          document.getElementById('injected').innerHTML = "not allowed origin: " + e.origin ;
           return;
         }
           
         try {
           eval( e.data )
         } catch( e ) {
-          console.log( e );
+          document.getElementById('injected').innerHTML = e;
         }
       },false);
 

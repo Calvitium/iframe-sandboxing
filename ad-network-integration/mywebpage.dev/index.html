@@ -1,0 +1,55 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Simple Webpage to illustrate a AdNetwork integration with Google AdSense</title>
+  </head>
+
+  <style>
+    body {
+      font-family: "Ubuntu", Arial;
+    }
+
+    #container {
+      width: 600px;
+      margin: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    p {
+      padding: 20px;
+    }
+
+    iframe {
+      width: 90%;
+      margin: 10px;
+    }
+
+
+  </style>
+  <body>
+    <div id="container">
+      <h1>Simple Webpage to illustrate a Network integration with Google AdSense</h1>
+      <p>
+        We have a test integration from Google AdSense here. You don't see the ad, because it's just with a test publisher id (0000000000000000) - here is no content - but the code inspector show's, that the integration comes within an iframe element.
+      </p>
+    </div>
+
+
+<script type="text/javascript">
+google_ad_client = "pub-0000000000000000"; 
+// google_ad_client = "ca-test";
+google_ad_width = "300";
+google_ad_height = "250"; 
+google_ad_format = "300x250_as"
+google_ad_type = "text_image";
+google_color_border = "";
+google_color_bg = "#000000";
+google_color_link = "";
+google_color_text = "";
+google_color_url = "" ;
+google_ui_features = "rc:0";
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+  </body>
+</html>
