@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Simple advertising iframe</title>
+  </head>
+
+  <style>
+    body {
+      font-family: "Ubuntu", Arial;
+    }
+
+    p {
+      padding: 20px;
+    }
+
+    p#origin {
+      padding: 0px 20px;
+    }
+
+    iframe {
+      width: 90%;
+      margin: 10px;
+    }
+  </style>
+  <body>
+    <p id="output">
+      Hey there, i'm a <b>sandboxed iframe</b> from <b>advertiser.dev</b>.<br/>
+      I would like to show you my origin, it's:
+      <p id="origin">
+        
+      </p>
+
+  </body>
+  <script>
+    window.onload = function() {
+      origin = document.getElementById("origin");
+      origin.innerHTML = "<b>Origin: " + document.domain + "</b>"
+    }
+  </script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Simple advertising iframe</title>
+  </head>
+
+  <style>
+    body {
+      font-family: "Ubuntu", Arial;
+    }
+
+    p {
+      padding: 20px;
+    }
+
+    iframe {
+      width: 90%;
+      margin: 10px;
+    }
+  </style>
+  <body>
+    <p id="output">
+      Hey there, i'm a sandboxed iframe from advertiser.dev.
+      I'm not allowed to:
+      <ul>
+        <li>navigate in another browsing context than my own.</li>
+        <li>use the "seamless" attribute.</li>
+        <li>manage my own origin.</li>
+        <li>execute forms and JavaScript-code.</li>
+        <li>execute additional features which are started automatically.</li>
+        <li>use "Pointerlock".</li>
+      </ul>
+    </p>
+
+  </body>
+  <script>
+    window.onload = function() {
+      output = document.getElementById("output");
+      output_content = "Seems like I\'m not sandboxed so I\'m able to: ";
+      output_content += "<ul>";
+        output_content += "<li>navigate through other browsing context (attention: Same Origin?).</li>";
+        output_content += "<li>take advantage of the \"seamless\" attribute</li>.";
+        output_content += "<li>manage my own origin.</li>";
+        output_content += "<li>execute forms and JavaScript-code (like I'm actually doing now).</li>";
+        output_content += "<li>execute additional feature which are started automatically.</li>";
+        output_content += "<li>lock your pointer with \"Pointerlock\".</li>";
+      output_content += "</ul>";
+      output.innerHTML = output_content;
+    }
+  </script>
+</html>

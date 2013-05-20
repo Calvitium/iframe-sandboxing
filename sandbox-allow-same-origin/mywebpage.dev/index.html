@@ -1,0 +1,70 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Simple Webpage to illustrate a Sandboxed IFrame with "allow-same-origin"</title>
+  </head>
+
+  <style>
+    body {
+      font-family: "Ubuntu", Arial;
+    }
+
+    #container {
+      width: 1000px;
+      margin: 50px auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    p {
+      padding: 20px;
+      line-height: 1.5em;
+    }
+
+    iframe {
+      width: 90%;
+      margin: 10px;
+    }
+
+    .iframe_container {
+      float: left;
+    }
+
+    div.clear {
+      clear: both;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+
+  </style>
+  <body>
+    <div id="container">
+      <h1>Simple Webpage to illustrate a Sandboxed IFrame with "allow-same-origin"</h1>
+      <p>
+        Both iframes <b>point to the same target</b> - to an "<a target="_blank" href="http://advertiser.dev:9999/index.html">advertiser</a>".<br/>
+        Both iframes are <b>sandboxed</b>, but this example should show the difference between an sandboxed iframe with the parameter "allow-same-origin" and one without this parameter.
+        The <b>first iframe sandboxed</b> - the advertiser tries to show his origin using JavaScript. The only parameter which is set into the sandbox is "allow-scripts".<br/>
+        The <b>second one is sandboxed - with "allow-same-origin"</b> - the advertiser is now able to show his origin.
+      </p>
+      <div class="iframe_container">
+        <h2>Sandbox without allow-same-origin</h2>
+        <iframe sandbox="allow-scripts" src="http://advertiser.dev:9999/index.html"
+          scrolling="no" frameborder="0" 
+          style="border:1px dashed #ccc; overflow:hidden; width:450px; height:300px;" allowTransparency="true">
+        </iframe>
+      </div>
+      <div class="iframe_container">
+        <h2>Sandbox with allow-same-origin</h2>
+        <iframe sandbox="allow-scripts allow-same-origin"
+          src="http://advertiser.dev:9999/index.html" 
+          scrolling="no" frameborder="0" 
+          style="border:1px dashed #ccc; overflow:hidden; width:450px; height:300px;" allowTransparency="true">
+        </iframe>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </body>
+</html>
