@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
   <head>
-    <title>Simple Webpage to illustrate a Sandboxed IFrame with "allow-popups"</title>
+    <title>Simple Webpage to illustrate a Sandboxed IFrame with "allow-pointer-lock"</title>
   </head>
 
   <style>
@@ -42,23 +42,23 @@
   </style>
   <body>
     <div id="container">
-      <h1>Simple Webpage to illustrate a Sandboxed IFrame with "allow-popups"</h1>
+      <h1>Simple Webpage to illustrate a Sandboxed IFrame with "allow-pointer-lock"</h1>
       <p>
         Both iframes <b>point to the same target</b> - to an "<a target="_blank" href="http://advertiser.dev:9999/index.html">advertiser</a>".<br/>
-        Both iframes are <b>sandboxed</b>, but this example should show the difference between an sandboxed iframe with the parameter "allow-popups" and one without this parameter.
-        The <b>first iframe sandboxed</b> - the advertiser tries to open Popups using JavaScript. The only parameter which is set into the sandbox is "allow-scripts".<br/>
-        The <b>second one is sandboxed - with "allow-popups"</b> - the advertiser is now able to show open popups.
+        Both iframes are <b>sandboxed</b>, but this example should show the difference between an sandboxed iframe with the parameter "allow-pointer-lock" and one without this parameter.
+        The <b>first iframe sandboxed</b> - the advertiser tries to lock your pointer on a click at his content using JavaScript. The only parameter which is set into the sandbox is "allow-scripts".<br/>
+        The <b>second one is sandboxed - with "allow-pointer-lock"</b> - the advertiser is now able to lock your pointer on click.
       </p>
       <div class="iframe_container">
-        <h2>Sandbox without allow-popups</h2>
+        <h2>Sandbox without allow-pointer-lock</h2>
         <iframe sandbox="allow-scripts" src="http://advertiser.dev:9999/index.html"
           scrolling="no" frameborder="0" 
           style="border:1px dashed #ccc; overflow:hidden; width:450px; height:150px;" allowTransparency="true">
         </iframe>
       </div>
       <div class="iframe_container">
-        <h2>Sandbox with allow-popups</h2>
-        <iframe sandbox="allow-scripts allow-popups"
+        <h2>Sandbox with allow-pointer-lock</h2>
+        <iframe sandbox="allow-scripts allow-pointer-lock"
           src="http://advertiser.dev:9999/index.html" 
           scrolling="no" frameborder="0" 
           style="border:1px dashed #ccc; overflow:hidden; width:450px; height:150px;" allowTransparency="true">

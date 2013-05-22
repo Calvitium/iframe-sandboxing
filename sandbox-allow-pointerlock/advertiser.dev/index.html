@@ -1,0 +1,68 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Simple advertising iframe</title>
+  </head>
+
+  <style>
+    body {
+      font-family: "Ubuntu", Arial;
+    }
+
+    p {
+      padding: 20px;
+    }
+
+    p#origin {
+      padding: 0px 20px;
+    }
+
+    iframe {
+      width: 90%;
+      margin: 10px;
+    }
+  </style>
+  <body>
+    <p id="output">
+      I try to lock your pointer, just click me.
+      
+      <div id="pointer-lock-element"></div>
+    </p>    
+
+  </body>
+  <script>
+    var elem;
+    var body;
+
+    body = document.getElementsByTagName("body")[0];
+
+    function pointerLockChange() {
+      if (document.mozPointerLockElement === elem ||
+          document.webkitPointerLockElement === elem) {
+        console.log("Pointer Lock was successful.");
+      } else {
+        console.log("Pointer Lock was lost.");
+      }
+    }
+     
+    document.addEventListener('pointerlockchange', pointerLockChange, false);
+    document.addEventListener('mozpointerlockchange', pointerLockChange, false);
+    document.addEventListener('webkitpointerlockchange', pointerLockChange, false);
+     
+    function pointerLockError() {
+      console.log("Error while locking pointer.");
+    }
+     
+    document.addEventListener('pointerlockerror', pointerLockError, false);
+    document.addEventListener('mozpointerlockerror', pointerLockError, false);
+    document.addEventListener('webkitpointerlockerror', pointerLockError, false);
+     
+    body.onclick = function lockPointer() {
+      elem = document.getElementById("pointer-lock-element");
+      elem.requestPointerLock = elem.requestPointerLock    ||
+                                elem.mozRequestPointerLock ||
+                                elem.webkitRequestPointerLock;
+      elem.requestPointerLock();
+    };
+  </script>
+</html>

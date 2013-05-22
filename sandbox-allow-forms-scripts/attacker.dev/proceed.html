@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Attacker</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <style>
+      body {
+        font-family: "Ubuntu", Arial;
+      }
+      p {
+       padding: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Advertiser (compromised)</h1>
+    <p id="output"></p>
+  </body>
+
+  <script>
+    window.onload = function() {
+      var output = document.getElementById("output");
+      var params = new String(document.location).split("?")[1].split("&")
+      console.log(params)
+      var credentials = "";
+
+      for( var i = 0; i < params.length; i++ ) {
+        values = params[i].split("=");
+        credentials += "Your <b>" + values[0] + "</b> is <b>" + values[1] + "</b><br/>";
+      }
+      
+      output.innerHTML = credentials
+    }
+  </script>
+</html>

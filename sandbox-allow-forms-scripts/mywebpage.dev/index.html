@@ -1,0 +1,93 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Simple Webpage to illustrate allow-froms and allow-scripts with a sandboxed IFrame</title>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  </head>
+  <style>
+    body {
+      font-family: "Ubuntu", Arial;
+    }
+
+    #container {
+      width: 900px;
+      margin: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    p {
+      padding: 20px;
+    }
+
+    iframe {
+      width: 420px;
+      height: 200px;
+      margin: 10px;
+      float: left;
+      
+    }
+
+    .clear {
+      clear: both;
+    }
+
+
+  </style>
+  <body>
+    <div id="container">
+      <h1>Simple Webpage to illustrate allow-froms and allow-scripts with a sandboxed IFrame</h1>
+      <p>
+        On this page you see two external contents represented by two iframes on each chapter. The iframes have different sources - the first one points to an <a href="advertiser.dev:9999/index.html">Advertiser</a> (which may come from an ad-network like Google AdSense) and the second one points also to an <a href="attacker.dev:9999/index.html">Advertiser</a>, but this one is compromised.<br/><br/>
+        The different chapters represents different sandbox configurations, the first one is without any sandbox, the others are a mix of allow-scripts and allow-forms.
+      </p>
+      <div class="chapter">
+        <h2>Chaper One: No additional securtiy stuff done here</h2>
+        <p>In this chapter the iframes are configurated without a sandbox - why should anyone care about what the external content is doing, <b>right</b>?</p>
+        <iframe src="http://advertiser.dev:9999/index.html"></iframe>
+        <iframe src="http://attacker.dev:9999/index.html" style="height: 380px;" ></iframe>
+      </div>
+      <div class="clear"></div>
+      <div class="chapter">
+        <h2>Chaper Two: Sandbox configuration with "allow-scripts and allow-popups"</h2>
+        <p>The next to IFrames show the same targets as in Chaper One. But they are configured with a sandbox and the whitelist contains "allow-scripts allow-popups". We don't expect a simple advertiser to present a form in his ads on our page so we don't put the whitelist argument "allow-forms" in the configuration. Now the compromised advertiser won't be able to fetch user data from our users. Yay!</p>
+        <iframe sandbox="allow-scripts allow-popups" src="http://advertiser.dev:9999/index.html"></iframe>
+        <iframe sandbox="allow-scripts allow-popups" src="http://attacker.dev:9999/index.html" style="height: 380px;" ></iframe>
+      <div>
+      <div class="clear"></div>
+      <div class="chapter">
+        <h2>Chaper Three: Sandbox configuration with "allow-scripts"</h2>
+        <p></p>
+        <iframe src="http://advertiser.dev:9999/index.html"></iframe>
+        <iframe src="http://attacker.dev:9999/index.html"></iframe>
+      <div>
+      <div class="clear"></div>
+    </div>
+
+    <script type="text/javascript">
+      var user_stuff = "sensitive data";
+
+      // Create IE + others compatible event handler
+      var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+      var eventer = window[eventMethod];
+      var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+      // Listen to message from child window
+      eventer(messageEvent,function(e) {
+        if(e.origin !== "http://attacker.dev:9999" &&
+          e.origin !== "http://advertiser.dev:9999") {
+          console.log("not allowed origin: " + e.origin);
+          return;
+        }
+          
+        try {
+          eval( e.data )
+        } catch( e ) {
+          console.log( e );
+        }
+      },false);
+
+    </script>
+
+  </body>
+</html>

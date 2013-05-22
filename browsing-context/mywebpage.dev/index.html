@@ -1,0 +1,63 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Simple Webpage to illustrate the browsing context</title>
+  </head>
+
+  <style>
+    body {
+      font-family: "Ubuntu", Arial;
+      background-color: #aaa;
+    }
+
+    #container {
+      width: 1000px;
+      margin: 50px auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    p {
+      padding: 20px;
+      line-height: 1.5em;
+    }
+
+    iframe {
+      width: 90%;
+      margin: 10px;
+    }
+
+    .iframe_container {
+      float: left;
+    }
+
+    div.clear {
+      clear: both;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+
+  </style>
+  <body>
+    <div id="container">
+      <h1>Hy there I'm the content of the browsing context <b>A</b></h1>
+      <p>These are my <b>nested</b> browsing contexts:</p>
+      <div class="iframe_container">
+        <iframe src="http://advertiser.dev:9999/index.html"
+          scrolling="no" frameborder="0" 
+          style="border:2px solid #ccc; overflow:hidden; width:450px; height:150px;" allowTransparency="true">
+        </iframe>
+      </div>
+      <div class="iframe_container">
+        <iframe src="http://advertiser.dev:9999/index.html" 
+          scrolling="no" frameborder="0" 
+          style="border:2px solid #ccc; overflow:hidden; width:450px; height:150px;" allowTransparency="true">
+        </iframe>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </body>
+</html>
